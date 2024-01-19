@@ -13,7 +13,6 @@ namespace TopScorerTests
     public class TopScorerTests
     {
         [Theory]
-       // [InlineData()]
         [InlineData("First Name,Second Name,Score", "Bob,Builder,85")]
         public void ReadCsvFile_ShouldSkipHeaderAndReadData(params string[] csvLines)
         {
@@ -25,10 +24,8 @@ namespace TopScorerTests
             var results = TestResultProcessor.ReadCsvFile(tempCsvPath);
 
             // Assert
-            // Because we skip first line deduct 1 from csvLines
             Assert.Equal(csvLines.Length - 1, results.Count);
 
-            // take first record not headers and assert against test result from results
             var values = csvLines[1].Split(','); 
             var testResult = results.FirstOrDefault();
             Assert.Equal(values[0], testResult.FirstName);

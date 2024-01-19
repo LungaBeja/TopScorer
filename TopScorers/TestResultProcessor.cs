@@ -15,10 +15,8 @@ namespace TopScorers
 
             using (var reader = new StreamReader(filePath))
             {
-                // Skip the first line containing the headings
                 reader.ReadLine();
 
-                // Read lines and add them to list
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
